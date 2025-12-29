@@ -1,6 +1,10 @@
 import random
 import string
 
+"""Store Previously Generated Plate Number"""
+already_generated = set()
+
+"""Main Function for Generating Plate Number"""
 def generate_plate_number():
     def generate_letters():
         """Generates a list of random letters"""
@@ -42,9 +46,13 @@ def generate_plate_number():
 
         return appended_num
     
-    """Print Plate Number"""
-    print(f'\n{generate_letters()}-{generate_numbers()}')
+    """Display Formatted Plate Number"""
+    plate_number = (f'{generate_letters()}-{generate_numbers()}')
+    return plate_number
 
 """Simulate Plate Number Generation"""
-for i in range(1000):
-    generate_plate_number()
+for i in range(10):
+    plate_number = generate_plate_number()
+    already_generated.add(plate_number)
+    print(f'\nNewly Generated Plate Number: {plate_number}')
+    print(f'\nUpdated Plate Number List: {already_generated}')
